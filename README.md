@@ -1,0 +1,1 @@
+**A javascript menu with salary and vacation calculations**
