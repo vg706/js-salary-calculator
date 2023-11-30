@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salário</title>
+</head>
+<body>
+    <h1>Bem Vindo!</h1>
+    <h2>Escolha dentre as opções abaixo:</h2>
+    <ul>
+        <li><h3>1. Calcular novo salário</h3></li>
+        <li><h3>2. Calcular valor de suas férias</h3></li>
+        <li><h3>3. Calcular seu décimo terceiro salário</h3></li>
+        <li><h3>4. Sair</h3></li>
+    </ul>
+    <h2 id="textoOpcao">Insira sua escolha:</h2>
+    <input type="text" id="opcaoMenu">
+    <input type="submit" id="confirmarOpcao" onclick="resultadoOpcao()" value="Confirmar"><br>
+    <input type="text" id="valorSalario" style="visibility: hidden;">
+    <h3 id="textoMesesTrabalho" style="visibility: hidden;">Insira aqui o número de meses trabalhados:</h3>
+    <input type="text" id="mesesTrabalho" style="visibility: hidden;">
+    <input type="submit" id="retornarBtn" onclick="window.location.reload();" value="Voltar" style="visibility: hidden;">
+    <input type="submit" id="calcularBtn" onclick="resultadoOpcao();" value="Calcular" style="visibility: hidden;">
+    <h3 id="textoExplicaOpcao" style="visibility: hidden;">Para valores decimais, use o ponto: "."</h3>
+    <h2 id="resultadoOpcao"></h2>
+    <script src="app.js"></script>
+</body>
+</html>
