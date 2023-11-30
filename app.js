@@ -1,3 +1,28 @@
+var enterConfirmBtn = document.getElementById("opcaoMenu");
+var enterCalcBtn = document.getElementById("valorSalario");
+var enterMesesBtn = document.getElementById("mesesTrabalho");
+
+enterConfirmBtn.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("confirmarOpcao").click();
+    }
+})
+
+enterCalcBtn.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("calcularBtn").click();
+    }
+})
+
+enterMesesBtn.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("calcularBtn").click();
+    }
+})
+
 function resultadoOpcao() {
     var opcaoMenu = document.getElementById("opcaoMenu").value;
     var opcaoValida = true;
@@ -56,20 +81,35 @@ function calcularNovoSalario() {
     else if (valSalario > 2400) {
         novoSalario += (+((valSalario * 5)/100).toFixed(2));
     }
-    document.getElementById("resultadoOpcao").innerText = "Seu novo salário é de: R$" + novoSalario;
+    if (isNaN(valSalario)) {
+        document.getElementById("resultadoOpcao").innerText = "Opção Inválida";
+    } 
+    else {
+        document.getElementById("resultadoOpcao").innerText = "Seu novo salário é de: R$" + novoSalario;
+    } 
 }
 
 function calcularValFerias() {
     let valSalario = parseFloat(document.getElementById("valorSalario").value);
     let valFerias = valSalario
     valFerias += (+(valSalario / 3).toFixed(2));
-    document.getElementById("resultadoOpcao").innerText = "O valor de suas férias é de: R$" + valFerias;
+    if (isNaN(valSalario)) {
+        document.getElementById("resultadoOpcao").innerText = "Opção Inválida";
+    } 
+    else {
+        document.getElementById("resultadoOpcao").innerText = "O valor de suas férias é de: R$" + valFerias;
+    }
 }
 
 function calcularDecimoTerceiro() {
     let valSalario = parseFloat(document.getElementById("valorSalario").value);
+    let mesesTrabalho = parseFloat(document.getElementById("mesesTrabalho").value);
     let valDecimoTerceiro = 0;
-    let mesesTrabalho = document.getElementById("mesesTrabalho").value;
     valDecimoTerceiro = (+(mesesTrabalho * valSalario) / 12).toFixed(2);
-    document.getElementById("resultadoOpcao").innerText = "O valor de seu 13° salário é de: R$" + valDecimoTerceiro;
+    if (isNaN(valSalario) || isNaN(mesesTrabalho)) {
+        document.getElementById("resultadoOpcao").innerText = "Opção Inválida";
+    } 
+    else {
+        document.getElementById("resultadoOpcao").innerText = "O valor de seu 13° salário é de: R$" + valDecimoTerceiro;
+    }
 }
